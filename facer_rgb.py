@@ -25,7 +25,7 @@ parser = argparse.ArgumentParser(description=f"""Interacts with experimental Ace
 
 -z [ZoneID]
     Zone ID(Only in static mode):
-    Possible values: 1,2,3,4
+    Possible values: 0,1,2,3
 
 -s [speed]
     Animation Speed:
@@ -109,7 +109,7 @@ parser.add_argument('-m',
 parser.add_argument('-z',
                     type=int,
                     dest='zone',
-                    default=1)
+                    default=0)
 
 parser.add_argument('-s',
                     type=int,
@@ -170,14 +170,20 @@ if args.save:
 if args.mode == 0:
     # Static coloring mode
     payload = [0] * PAYLOAD_SIZE_STATIC_MODE
-    if args.zone < 1 or args.zone > 8:
-        print("Invalid Zone ID entered! Possible values are: 1, 2, 3, 4 from left to right")
-    payload[0] = 1 << (args.zone - 1)
+    if args.zone < 0 or args.zone > 3:
+        print("Invalid Zone ID entered! Possible values are: 1, 2, 3 from left to right or 0 for all")
     payload[1] = args.red
     payload[2] = args.green
     payload[3] = args.blue
-    with open(CHARACTER_DEVICE_STATIC, 'wb') as cd:
-        cd.write(bytes(payload))
+    if args.zone > 0:
+        payload[0] = 1 << (args.zone - 1)
+        with open(CHARACTER_DEVICE_STATIC, 'wb') as cd:
+            cd.write(bytes(payload))
+    else:
+        for zone in range(3):
+            payload[0] = 1 << zone
+            with open(CHARACTER_DEVICE_STATIC, 'wb') as cd:
+                cd.write(bytes(payload))
 
     # Tell WMI To use STATIC coloring
     # Dynamic coloring mode
