@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FACER=$(dirname $(realpath --canonicalize-existing ${0}))/facer_rgb.py
+ACERRGB=$(dirname $(realpath --canonicalize-existing ${0}))/acer-rgb.py
 
 STATIC='-m 0'
 FLASH='-m 2'
@@ -31,9 +31,9 @@ ZONE=
 BRIGHTNESS=
 
 if [ ${#} == 0 ]; then
-    ${FACER} ${STATIC} ${RED} ${LEFT}
-    ${FACER} ${STATIC} ${YELLOW} ${MIDDLE}
-    ${FACER} ${STATIC} ${RED} ${RIGHT}
+    ${ACERRGB} ${STATIC} ${RED} ${LEFT}
+    ${ACERRGB} ${STATIC} ${YELLOW} ${MIDDLE}
+    ${ACERRGB} ${STATIC} ${RED} ${RIGHT}
 else
     while (( ${#} )); do
         case ${1} in
@@ -92,5 +92,5 @@ else
         shift
     done
 
-    ${FACER} ${MODE} ${COLOR} ${SPEED} ${ZONE} ${BRIGHTNESS}
+    ${ACERRGB} ${MODE} ${COLOR} ${SPEED} ${ZONE} ${BRIGHTNESS}
 fi

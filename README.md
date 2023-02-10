@@ -126,11 +126,11 @@ You can use the `keyboard.py` which is a simple script that provide an easy-to-u
 python keyboard.py
 ```
 
-If you want more control, you also have access to the `facer_rgb.py` this can be useful if you are building your own scrips. Instruction for using `facer_rgb.py` is given below or check help for more advanced usage:  
-`./facer_rgb.py --help`
+If you want more control, you also have access to the `acer_rgb.py` this can be useful if you are building your own scrips. Instruction for using `acer_rgb.py` is given below or check help for more advanced usage:
+`./acer_rgb.py --help`
 
 ```
-usage: facer_rgb.py [-h] [-m MODE] [-z ZONE] [-s SPEED] [-b BRIGHTNESS] [-d DIRECTION] [-cR RED] [-cG GREEN] [-cB BLUE]
+usage: acer_rgb.py [-h] [-m MODE] [-z ZONE] [-s SPEED] [-b BRIGHTNESS] [-d DIRECTION] [-cR RED] [-cG GREEN] [-cB BLUE]
 
 Interacts with experimental Acer-wmi kernel module.
 -m [mode index]
@@ -213,31 +213,31 @@ optional arguments:
 Sample usages:
 
 Breath effect with Purple color(speed=4, brightness=100):  
-`./facer_rgb.py -m 1 -s 4 -b 100 -cR 255 -cG 0 -cB 255`
+`./acer_rgb.py -m 1 -s 4 -b 100 -cR 255 -cG 0 -cB 255`
 
 Neon effect(speed=3, brightness=100):  
-`./facer_rgb.py -m 2 -s 3 -b 100`
+`./acer_rgb.py -m 2 -s 3 -b 100`
 
 Wave effect(speed=5, brightness=100):  
-`./facer_rgb.py -m 3 -s 5 -b 100`
+`./acer_rgb.py -m 3 -s 5 -b 100`
 
 Shifting effect with Blue color (speed=5, brightness=100):  
-`./facer_rgb.py -m 4 -s 5 -b 100 -cR 0 -cB 255 -cG 0`
+`./acer_rgb.py -m 4 -s 5 -b 100 -cR 0 -cB 255 -cG 0`
 
 Zoom effect with Green color (speed=7, brightness=100):  
-`./facer_rgb.py -m 5 -s 7 -b 100 -cR 0 -cB 0 -cG 255`
+`./acer_rgb.py -m 5 -s 7 -b 100 -cR 0 -cB 0 -cG 255`
 
 Static waving (speed=0):
-`./facer_rgb.py -m 3 -s 0 -b 100`
+`./acer_rgb.py -m 3 -s 0 -b 100`
 
 Static mode coloring (zone=1 => most left zone, color=blue):  
-`./facer_rgb.py -m 0 -z 1 -cR 0 -cB 255 -cG 0`
+`./acer_rgb.py -m 0 -z 1 -cR 0 -cB 255 -cG 0`
 
 Static mode coloring (zone=4 => most right zone, color=purple) and save it as example:  
-`./facer_rgb.py -m 0 -z 4 -cR 255 -cB 255 -cG 0`
+`./acer_rgb.py -m 0 -z 4 -cR 255 -cB 255 -cG 0`
 
 Load the previously saved profile:
-`./facer_rgb.py -load example`
+`./acer_rgb.py -load example`
 
 
 ## Known problems

@@ -35,7 +35,7 @@ modprobe wmi
 modprobe sparse-keymap
 modprobe video
 
-# install facer module
-insmod src/facer.ko
+# install acer-control module
+insmod src/acer_control.ko
 dmesg | tail -n 10
 echo "[*] Done"

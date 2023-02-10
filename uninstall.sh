@@ -4,5 +4,5 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-rmmod facer
+rmmod acer-control
 modprobe acer_wmi
