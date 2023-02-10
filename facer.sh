@@ -1,0 +1,96 @@
+#!/bin/sh
+
+FACER=$(dirname $(realpath --canonicalize-existing ${0}))/facer_rgb.py
+
+STATIC='-m 0'
+FLASH='-m 2'
+FLOW='-m 3'
+
+RED='-cR 255 -cG 0 -cB 0'
+GREEN='-cR 0 -cG 255 -cB 0'
+BLUE='-cR 0 -cG 0 -cB 255'
+WHITE='-cR 95 -cG 127 -cB 255'
+YELLOW='-cR 255 -cG 255 -cB 0'
+ORANGE='-cR 255 -cG 127 -cB 0'
+
+SLOW='-s 1'
+FAST='-s 7'
+
+LEFT='-z 1'
+MIDDLE='-z 2'
+RIGHT='-z 3'
+
+BRIGHT='-b 100'
+DIMMED='-b 25'
+OFF='-b 0'
+
+MODE=${STATIC}
+COLOR=${WHITE}
+SPEED=
+ZONE=
+BRIGHTNESS=
+
+if [ ${#} == 0 ]; then
+    ${FACER} ${STATIC} ${RED} ${LEFT}
+    ${FACER} ${STATIC} ${YELLOW} ${MIDDLE}
+    ${FACER} ${STATIC} ${RED} ${RIGHT}
+else
+    while (( ${#} )); do
+        case ${1} in
+            red)
+                COLOR=${RED}
+                ;;
+            green)
+                COLOR=${GREEN}
+                ;;
+            blue)
+                COLOR=${BLUE}
+                ;;
+            white)
+                COLOR=${WHITE}
+                ;;
+            yellow)
+                COLOR=${YELLOW}
+                ;;
+            orange)
+                COLOR=${ORANGE}
+                ;;
+            flash)
+                MODE=${FLASH}
+                SPEED=${FAST}
+                ;;
+            flow)
+                MODE=${FLOW}
+                COLOR=
+                SPEED=${SLOW}
+                ;;
+            slow)
+                SPEED=${SLOW}
+                ;;
+            fast)
+                SPEED=${FAST}
+                ;;
+            left)
+                ZONE=${LEFT}
+                ;;
+            middle)
+                ZONE=${MIDDLE}
+                ;;
+            right)
+                ZONE=${RIGHT}
+                ;;
+            bright)
+                BRIGHTNESS=${BRIGHT}
+                ;;
+            dimmed)
+                BRIGHTNESS=${DIMMED}
+                ;;
+            off)
+                BRIGHTNESS=${OFF}
+                ;;
+        esac
+        shift
+    done
+
+    ${FACER} ${MODE} ${COLOR} ${SPEED} ${ZONE} ${BRIGHTNESS}
+fi
