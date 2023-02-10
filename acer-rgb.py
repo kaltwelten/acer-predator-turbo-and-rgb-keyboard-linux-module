@@ -80,25 +80,25 @@ parser = argparse.ArgumentParser(description=f"""Interacts with experimental Ace
 Some sample commands:
 
 Breath effect with Purple color(speed=4, brightness=100):
-./facer_rgb.py -m 1 -s 4 -b 100 -cR 255 -cG 0 -cB 255
+./acer-rgb.py -m 1 -s 4 -b 100 -cR 255 -cG 0 -cB 255
 
 Neon effect(speed=3, brightness=100):
-./facer_rgb.py -m 2 -s 3 -b 100
+./acer-rgb.py -m 2 -s 3 -b 100
 
 Wave effect(speed=5, brightness=100):
-./facer_rgb.py -m 3 -s 5 -b 100
+./acer-rgb.py -m 3 -s 5 -b 100
 
 Shifting effect with Blue color (speed=5, brightness=100):
-./facer_rgb.py -m 4 -s 5 -b 100 -cR 0 -cB 255 -cG 0
+./acer-rgb.py -m 4 -s 5 -b 100 -cR 0 -cB 255 -cG 0
 
 Zoom effect with Green color (speed=7, brightness=100):
-./facer_rgb.py -m 5 -s 7 -b 100 -cR 0 -cB 0 -cG 255 -save zoom
+./acer-rgb.py -m 5 -s 7 -b 100 -cR 0 -cB 0 -cG 255 -save zoom
 
 Static waving (speed=0) and save it as example:
-./facer_rgb.py -m 3 -s 0 -b 100 -save example
+./acer-rgb.py -m 3 -s 0 -b 100 -save example
 
 Load the previously saved profile:
-./facer_rgb.py -load example
+./acer-rgb.py -load example
 """, formatter_class=argparse.RawTextHelpFormatter)
 
 parser.add_argument('-m',

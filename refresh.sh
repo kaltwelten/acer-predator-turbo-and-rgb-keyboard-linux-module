@@ -1,5 +1,5 @@
 #!/bin/bash
-rmmod facer
+rmmod acer-control
 make
-insmod src/facer.ko
+insmod src/acer_control.ko
 dmesg | tail -n 30

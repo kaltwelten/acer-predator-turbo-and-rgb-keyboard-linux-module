@@ -59,13 +59,13 @@ start() {
 	/sbin/modprobe wmi
 	/sbin/modprobe sparse-keymap
 	/sbin/modprobe video
-	/sbin/insmod $target_dir/src/facer.ko
+	/sbin/insmod $target_dir/src/acer_control.ko
 	# You can also just make it launch $target_dir/install.sh by uncommenting the line below and removing everything starting from /sbin/rmmod acer_wmi to /sbin/insmod
-	# /bin/bash $target_dir/src/facer.ko
+	# /bin/bash $target_dir/src/acer_control.ko
 }
 
 stop() {
-	/sbin/rmmod facer
+	/sbin/rmmod acer-control
 }
 
 # vim: set ts=4 :
